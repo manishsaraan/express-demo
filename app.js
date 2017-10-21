@@ -6,9 +6,9 @@ app.use(express.static('public'));
 app.use(express.static('src/views'));
 
 //starting routes
-app.get("/",function(req, res){
-	 res.send("Hello World!!!");
+app.get('/',function(req, res){
+	 res.send('Hello World!!!');
 });
 app.listen(PORT,function(err){
-	console.log("App is running at port : "+PORT);
+	console.log('App is running at port : ' + PORT);
 });
