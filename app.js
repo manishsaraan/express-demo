@@ -3,11 +3,12 @@ var app  = express();
 var PORT = process.env.PORT || 5000;
 
 app.use(express.static('public'));
-app.use(express.static('src/views'));
+app.set('views', './src/views');
+app.set('view engine', 'jade'); 
 
 //starting routes
 app.get('/',function(req, res){
-	 res.send('Hello World!!!');
+	 res.render('index',{list: ['1','2','3','4']});
 });
 app.listen(PORT,function(err){
 	console.log('App is running at port : ' + PORT);
