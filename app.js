@@ -1,6 +1,7 @@
 var express  = require('express');
 var app  = express();
 var PORT = process.env.PORT || 5000;
+var bookRouter = express.Router();
 var handlebars = require('express-handlebars');
 
 app.use(express.static('public'));
@@ -18,8 +19,20 @@ app.set('view engine', 'ejs');
 
 
 //starting routes
+bookRouter.route('/')
+                .get(function(req, res){
+                	res.send('Hello Books');
+                });
+
+bookRouter.route('/single')
+                .get(function(req, res){
+                	res.send('Hello single book');
+                });
+
+app.use('/Books',bookRouter);
 app.get('/',function(req, res){
-	 res.render('index',{title : 'Hello from render', list: ['1','2','3','4']});
+	 res.render('index',{title : 'Hello from render', nav: [{Link:'/Books',Text:'books'},
+	 	                                                    {Link:'/Authors',Text:'Authors'}]});
 });
 app.listen(PORT,function(err){
 	console.log('App is running at port : ' + PORT);
