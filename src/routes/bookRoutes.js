@@ -1,8 +1,8 @@
 var express = require('express');
 
 var bookRouter = express.Router();
-
-var books = [
+var router = function(nav){
+	var books = [
     {
         title: 'War and Peace',
         genre: 'Historical Fiction',
@@ -58,18 +58,17 @@ var books = [
 bookRouter.route('/')
                 .get(function(req, res){
                 	res.render('books',{title : 'Hello from render',
-                	                    nav: [{Link:'/Books',Text:'books'},
-	 	                                    {Link:'/Authors',Text:'Authors'}],
-	 	                                books : books});
+                	                    nav:nav,books : books});
                 });
 
 bookRouter.route('/:id')
                 .get(function(req, res){
                 	var id = req.params.id;                	
                 	res.render('bookListView',{title : 'Hello from render',
-                	                    nav: [{Link:'/Books',Text:'books'},
-	 	                                    {Link:'/Authors',Text:'Authors'}],
-	 	                                book : books[id]});
+                	                    nav: nav, book : books[id]});
                 });
+    return bookRouter;
+};
 
-module.exports = bookRouter;
+
+module.exports = router;
