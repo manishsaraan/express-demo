@@ -10,12 +10,16 @@
   "author": "“manishsaraan” <“manish021js@gmail.com”>",
   "license": "MIT",
   "dependencies": {
+    "cookie-parser": "^1.4.3",
     "express": "^4.16.2",
+    "express-session": "^1.15.6",
     "gulp-jscs": "^4.0.0",
     "gulp-jshint": "^2.0.4",
-    "jshint-stylish": "^2.2.1"
+    "jshint-stylish": "^2.2.1",
+    "passport": "^0.4.0"
   },
   "devDependencies": {
+    "body-parser": "^1.18.2",
     "ejs": "^2.5.7",
     "express-handlebars": "^3.0.0",
     "gulp": "^3.9.1",
@@ -26,6 +30,7 @@
     "jshint": "^2.9.5",
     "mongodb": "^2.2.33",
     "mssql": "^4.1.0",
+    "passport-local": "^1.0.0",
     "wiredep": "^4.0.0"
   }
 }
