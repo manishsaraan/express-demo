@@ -92,14 +92,19 @@
             <br>
             <div class="col-md-2 col-sm-3 text-center">
               Sign In
+              <form name="signInForm" action="/Auth/signIn" method="POST"> 
+                Username: <input id="userName" name="userName"><br>
+                Password: <input id="password" name="password" /><br>
+                <input type="submit" name="" value="Sign In">                
+              </form>
+
             </div>
             <div class="col-md-10 col-sm-9">
               Sign Up
               <form name="signUpForm" action="/Auth/signUp" method="POST"> 
-                <input id="userName" name="userName">
-                <input id="password" name="password" />
-                <input type="submit" name="" value="Sign Up">
-                
+                Username: <input id="userName" name="userName"><br>
+                Password: <input id="password" name="password" /><br>
+                <input type="submit" name="" value="Sign Up">                
               </form>
             </div>
           </div>

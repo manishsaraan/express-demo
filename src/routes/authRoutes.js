@@ -10,13 +10,26 @@ var router = function (nav) {
     authRouter.route('/signUp').
               post(function(req, res){
                  console.log(req.body);
-                 req.login(req.body, function(){
-                     res.redirect('/auth/profile');
+
+                 //saving user into database
+                 mongodb.connect(url, function(err, db){
+                    var collection = db.collection("user");
+                    var user = {
+                        username : req.body.userName,
+                        password : req.body.password
+                    };
+                    collection.insert(user, function(err, result){
+                        console.log(result.ops[0]);
+                        req.session.user = result.ops[0];
+                        req.login(result.ops[0], function(){
+                         res.redirect('/auth/profile');
+                        });
+                    });
                  });
+                 
               });
     authRouter.route('/profile')
-              .get(function(req, res){
-                console.log(req.user);
+              .get(function(req, res){               
                 res.json(req.user);
               });
     return authRouter;
