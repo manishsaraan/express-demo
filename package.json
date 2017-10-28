@@ -24,6 +24,8 @@
     "gulp-nodemon": "^2.2.1",
     "jade": "^1.11.0",
     "jshint": "^2.9.5",
+    "mongodb": "^2.2.33",
+    "mssql": "^4.1.0",
     "wiredep": "^4.0.0"
   }
 }
